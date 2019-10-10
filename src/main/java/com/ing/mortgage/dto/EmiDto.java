@@ -1,7 +1,5 @@
 package com.ing.mortgage.dto;
 
-import lombok.Getter;
-import lombok.Setter;
 
 
 public class EmiDto {
@@ -30,5 +28,6 @@ public class EmiDto {
 	
 	
 	
+
 	
 }
