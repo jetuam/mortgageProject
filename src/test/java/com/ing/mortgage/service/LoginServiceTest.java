@@ -13,12 +13,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-
 import com.ing.mortgage.dto.RequestLoanDto;
 import com.ing.mortgage.dto.RequestLoginDto;
 import com.ing.mortgage.dto.ResponseLoanDto;
 import com.ing.mortgage.entity.Customer;
-import com.ing.mortgage.entity.Loan;
 import com.ing.mortgage.repository.CustomerRepository;
 import com.ing.mortgage.repository.LoanRepository;
 
