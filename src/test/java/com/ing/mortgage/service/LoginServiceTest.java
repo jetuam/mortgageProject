@@ -35,7 +35,7 @@ public class LoginServiceTest {
 	RequestLoginDto requestLoginDto;
 	Customer customer;
 	Loan loan;
-	  List<RequestLoanDto> loanAccountDetails;
+	  List<Loan> loanAccountDetails;
 	  RequestLoanDto requestLoanDto;
 	  ResponseLoanDto responseLoanDto;
 	@Before
@@ -72,15 +72,17 @@ public class LoginServiceTest {
 		loanAccountDetails=new ArrayList<>();
 		requestLoanDto=new RequestLoanDto();
 		requestLoanDto.setLoanAccountNo(loan.getLoanAccountNo());
-		loanAccountDetails.add(requestLoanDto);
-		responseLoanDto=new ResponseLoanDto();
-		responseLoanDto.setLoanDetails(loanAccountDetails);
+		loanAccountDetails.add(loan);
+		
 	}
+	
+	
 	@Test
 	public void loanDetailsTest()
 	{
 		Mockito.when(customerRepository.findByEmailIdAndPassword(Mockito.anyString(), Mockito.anyString())).thenReturn(customer);
-		List<Loan> loanDetails=loanRepository.findAllById(customer.getCustomerId());
+		Mockito.when(loanRepository.findAllById(Mockito.anyLong())).thenReturn(loanAccountDetails);
+		List<RequestLoanDto> loanDetails=loginService.loanDetails(requestLoginDto);
 		assertEquals(new Long(2345),loanDetails.get(0).getLoanAccountNo());
 	}
 }

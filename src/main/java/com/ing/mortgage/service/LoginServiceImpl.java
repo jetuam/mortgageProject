@@ -34,6 +34,7 @@ public List<RequestLoanDto> loanDetails(RequestLoginDto requestLoginDto)
 	loanDetails.forEach(loan->{
 		RequestLoanDto requestLoanDto=new RequestLoanDto();
 		requestLoanDto.setLoanAccountNo(loan.getLoanAccountNo());
+		requestLoanDto.setCustomerId(loan.getCustomer().getCustomerId());
 		loanAccountDetails.add(requestLoanDto);
 		});
 	return loanAccountDetails;
