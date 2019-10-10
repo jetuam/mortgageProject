@@ -31,12 +31,6 @@ public class LoginControllerTest {
 	{
 		RequestLoginDto requestLoginDto=new RequestLoginDto();
 		RequestLoanDto requestLoanDto=new RequestLoanDto();
-		/*
-		 * Loan loan=new Loan(); loan.setCustomer(customer);
-		 * loan.setBalanceAmount(234567.0); loan.setEmi(345.0);
-		 * loan.setLoanAccountNo(2345L); loan.setLoanCreatedDate(loanCreatedDate);
-		 * loan.setLoanId(1L); loan.setRateOfInterest(10.0); loan.setTenure(3);
-		 */
 		requestLoanDto.setCustomerId(1L);
 		requestLoanDto.setLoanAccountNo(23456L);
 		List<RequestLoanDto> loanDetails=new ArrayList<>();
