@@ -2,6 +2,8 @@ package com.ing.mortgage.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,11 +23,13 @@ import com.ing.mortgage.util.ExceptionConstants;
 @RequestMapping("/loans")
 public class LoginController {
 	
+	private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
 	@Autowired
 	LoginService loginService;
 	@PostMapping("/login")
-	public ResponseLoanDto LoanAccountDetails(@RequestBody RequestLoginDto requestLoginDto)
-	{
+	public ResponseLoanDto loanAccountDetails(@RequestBody RequestLoginDto requestLoginDto)
+	{  
+		
 		ResponseLoanDto responseLoanDto=new ResponseLoanDto();
 		 List<RequestLoanDto> loanDetails=loginService.loanDetails(requestLoginDto);
 		if(loanDetails!=null)
