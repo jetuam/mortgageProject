@@ -51,7 +51,7 @@ public List<RequestLoanDto> loanDetails(RequestLoginDto requestLoginDto)
 	}
 	else
 	{
-		throw new CommonException(ExceptionConstants.CUSTOMER_NOT_PRESENT);
+		throw new CommonException(ExceptionConstants.INVALID_PASSWORD);
 		
 	}
 }	
