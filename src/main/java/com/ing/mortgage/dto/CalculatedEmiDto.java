@@ -1,7 +1,5 @@
 package com.ing.mortgage.dto;
 
-import lombok.Getter;
-import lombok.Setter;
 
 
 public class CalculatedEmiDto {
@@ -20,9 +18,6 @@ public class CalculatedEmiDto {
 	public void setStatusCode(int statusCode) {
 		this.statusCode = statusCode;
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> f2572112903c0be1a7783cfd2e6883f8df369a92
+
 	
 }
