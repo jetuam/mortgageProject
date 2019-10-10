@@ -2,13 +2,11 @@ package com.ing.mortgage.entity;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+
 @Entity
 public class Customer {
 	 @Id
@@ -27,18 +25,23 @@ public class Customer {
 	
 	private Long mobileNo;
 
-	private Long panNumber;
+	private String panNumber;
 	
 	private Long pinCode;
 	
 	private String city;
 	
 	private String customerType;
+	private String password;
 	
-	 @OneToOne(cascade={CascadeType.ALL})
-	 @JoinColumn(name="customerCredentialId")
-	 private CustomerCredentials customerCredentials;
+	 
 	  
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getCity() {
 		return city;
 	}
@@ -87,10 +90,11 @@ public class Customer {
 	public void setMobileNo(Long mobileNo) {
 		this.mobileNo = mobileNo;
 	}
-	public Long getPanNumber() {
+
+	public String getPanNumber() {
 		return panNumber;
 	}
-	public void setPanNumber(Long panNumber) {
+	public void setPanNumber(String panNumber) {
 		this.panNumber = panNumber;
 	}
 	public Long getPinCode() {
@@ -107,12 +111,7 @@ public class Customer {
 		this.customerType = customerType;
 	}
 
-	public CustomerCredentials getCustomerCredentials() {
-		return customerCredentials;
-	}
-	public void setCustomerCredentials(CustomerCredentials customerCredentials) {
-		this.customerCredentials = customerCredentials;
-	}
+	
 	 
 	
 
