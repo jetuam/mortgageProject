@@ -19,6 +19,7 @@ import com.ing.mortgage.dto.ResponseLoanDto;
 import com.ing.mortgage.entity.Customer;
 import com.ing.mortgage.repository.CustomerRepository;
 import com.ing.mortgage.repository.LoanRepository;
+import com.ing.mortgage.entity.Loan;
 
 @RunWith(MockitoJUnitRunner.class) 
 public class LoginServiceTest {
