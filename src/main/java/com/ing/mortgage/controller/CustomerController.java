@@ -15,7 +15,7 @@ import com.ing.mortgage.service.EmiCalculationServiceImpl;
 
 @RestController
 @RequestMapping("/mortgage")
-@CrossOrigin(allowedHeaders = { "*", "*/" }, origins = { "*", "*/" })
+@CrossOrigin(allowedHeaders = { "*", "/" }, origins = { "*", "/" })
 public class CustomerController {
 
 	
