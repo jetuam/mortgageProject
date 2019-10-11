@@ -9,6 +9,6 @@ public class EmiDto {
 
 	private Double loanAmount;
 	private Double tenure;
-	private Double interestRate;
+	private Double rateOfInterest;
 	
 }

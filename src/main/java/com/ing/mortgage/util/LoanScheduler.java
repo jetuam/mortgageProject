@@ -1,6 +1,7 @@
 package com.ing.mortgage.util;
 
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,10 @@ import org.springframework.stereotype.Component;
 import com.ing.mortgage.entity.Loan;
 import com.ing.mortgage.repository.LoanRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Component
+@Slf4j
 public class LoanScheduler {
 
 	@Autowired
@@ -26,20 +30,29 @@ public class LoanScheduler {
 	@Scheduled(cron = "0 0/1 * * * *")
 	public void loanDeduction()
 	{
+		log.info("scheduler is running for this day");
 		List<Loan> loans = loanRepository.findAll();
 		
 		List<Loan> recurredLoan = new ArrayList<>();
 		
 		
 		loans.stream().forEach(loan ->{
-			Loan loanData = new Loan();
-			Double interestAmount = interestCalculation(loan.getRateOfInterest(), loan.getBalanceAmount());
-			Double balance = principalCalculation(loan.getEmi(), interestAmount);
-			Double overAllBalance = balanceAmount(loan.getBalanceAmount(), balance);
-			loan.setTenure(loan.getTenure()-1);
-			loan.setBalanceAmount(overAllBalance);
-			BeanUtils.copyProperties(loan, loanData);
-			recurredLoan.add(loanData);
+			if(loan.getLoanCreatedDate().getDate() == LocalDateTime.now().getDayOfMonth())
+			{
+				if(loan.getBalanceAmount() > 0)
+				{
+					log.info("same day is matched");
+					Loan loanData = new Loan();
+					Double interestAmount = interestCalculation(loan.getRateOfInterest(), loan.getBalanceAmount());
+					Double balance = principalCalculation(loan.getEmi(), interestAmount);
+					Double overAllBalance = balanceAmount(loan.getBalanceAmount(), balance);
+					loan.setTenure(loan.getTenure()-1);
+					loan.setBalanceAmount(overAllBalance);
+					BeanUtils.copyProperties(loan, loanData);
+					recurredLoan.add(loanData);
+					System.out.println("loanData "+loanData);
+				}
+			}
 		});
 		
 		loanRepository.saveAll(recurredLoan);
@@ -55,7 +68,7 @@ public class LoanScheduler {
 	 */
 	public Double interestCalculation(Double rateOfInterest, Double balanceAmount)
 	{
-		
+		log.info("interest calculation");
 		return ((balanceAmount * rateOfInterest)/MortgageUtil.month)/MortgageUtil.overallPercentage;
 	}
 	
@@ -69,6 +82,7 @@ public class LoanScheduler {
 	 */
 	public Double principalCalculation(Double emi, Double interestAmount)
 	{
+		log.info("principal calculation");
 		return emi - interestAmount;
 	}
 	
@@ -82,6 +96,7 @@ public class LoanScheduler {
 	 */
 	public Double balanceAmount(Double balanceAmount, Double monthlyPrinicipalAmount)
 	{
+		log.info("balance amount");
 		return balanceAmount - monthlyPrinicipalAmount;
 	}
 	

@@ -8,7 +8,10 @@ import com.ing.mortgage.dto.CalculatedEmiDto;
 import com.ing.mortgage.dto.EmiDto;
 import com.ing.mortgage.util.EmiCalculation;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class EmiCalculationService implements EmiCalculationServiceImpl {
 
 	@Autowired
@@ -24,7 +27,8 @@ public class EmiCalculationService implements EmiCalculationServiceImpl {
 	@Override
 	public CalculatedEmiDto calculatedEmi(EmiDto emiDto) {
 		
-		Double emi = emiCalculation.emiTenureCalculation(emiDto.getInterestRate(), emiDto.getLoanAmount(), emiDto.getTenure());
+		log.info("event for the calculation emi in service is called");
+		Double emi = emiCalculation.emiTenureCalculation(emiDto.getRateOfInterest(), emiDto.getLoanAmount(), emiDto.getTenure());
 		CalculatedEmiDto emiDtoValue = new CalculatedEmiDto();
 		emiDtoValue.setEmiAmount(emi);
 		emiDtoValue.setStatusCode(HttpStatus.OK.value());
