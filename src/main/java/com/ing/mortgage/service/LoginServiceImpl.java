@@ -37,6 +37,10 @@ public List<RequestLoanDto> loanDetails(RequestLoginDto requestLoginDto)
 		 requestLoanDto.setLoanAccountNo(loan.getLoanAccountNo());
 		 requestLoanDto.setLoanId(loan.getLoanId());
 		 requestLoanDto.setCustomerId(loan.getCustomer().getCustomerId());
+		      requestLoanDto.setFirstName(loan.getCustomer().getFirstName());
+		 requestLoanDto.setLastName(loan.getCustomer().getLastName());
+		 requestLoanDto.setEmailId(loan.getCustomer().getEmailId());
+		 requestLoanDto.setMobileNo(loan.getCustomer().getMobileNo());
 		 loanAccountDetails.add(requestLoanDto);
 		});
 	return loanAccountDetails;
