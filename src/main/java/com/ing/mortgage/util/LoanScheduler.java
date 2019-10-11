@@ -23,7 +23,7 @@ public class LoanScheduler {
 	 * @author Sharath
 	 * @apiNote scheduler for emi calculation
 	 */
-	@Scheduled(cron = "0 0/1 * * * *")
+	@Scheduled(cron = "0 0/10 * * * *")
 	public void loanDeduction()
 	{
 		List<Loan> loans = loanRepository.findAll();
