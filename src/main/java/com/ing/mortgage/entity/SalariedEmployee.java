@@ -19,9 +19,10 @@ public class SalariedEmployee {
 	private Double monthlySalary;
 	private Long officialPhoneNumber;
 	private String designation;
-  @OneToOne(cascade={CascadeType.ALL})
-  @JoinColumn(name="customerId")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "customerId",referencedColumnName = "customerId")
 	private Customer customer;
+	
 public Long getSalariedEmployeeId() {
 	return salariedEmployeeId;
 }

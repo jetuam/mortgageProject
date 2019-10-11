@@ -31,9 +31,9 @@ public class Loan {
  private Long loanAccountNo;
  
  private Date loanCreatedDate;
-	
- @ManyToOne(cascade={CascadeType.ALL})
- @JoinColumn(name="customerId") 
+
+ @ManyToOne(cascade = CascadeType.ALL)
+ @JoinColumn(name = "customerId",referencedColumnName = "customerId")
  private Customer customer;
 	
  
