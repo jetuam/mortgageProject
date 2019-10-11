@@ -14,6 +14,13 @@ public class EmiCalculationService implements EmiCalculationServiceImpl {
 	@Autowired
 	EmiCalculation emiCalculation;
 	
+	/**
+	 * @author Sharath
+	 * @param tenure
+	 * @param rate of interest
+	 * @param loan amount
+	 * @apiNote calculate emi for the customer
+	 */
 	@Override
 	public CalculatedEmiDto calculatedEmi(EmiDto emiDto) {
 		
