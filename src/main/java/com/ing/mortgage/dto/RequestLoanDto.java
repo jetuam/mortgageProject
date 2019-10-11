@@ -6,7 +6,10 @@ public class RequestLoanDto {
   private Long loanAccountNo;
   private Long customerId;
   private Long loanId;
-  
+  private String firstName;
+  private String lastName;
+  private String emailId;
+  private Long mobileNo;
 
 
 public Long getLoanId() {
@@ -27,6 +30,29 @@ public Long getLoanAccountNo() {
 public void setLoanAccountNo(Long loanAccountNo) {
 	this.loanAccountNo = loanAccountNo;
 }
-  
+  public String getEmailId() {
+	return emailId;
+}
+public void setEmailId(String emailId) {
+	this.emailId = emailId;
+}
+public Long getMobileNo() {
+	return mobileNo;
+}
+public void setMobileNo(Long mobileNo) {
+	this.mobileNo = mobileNo;
+}
+public String getFirstName() {
+	return firstName;
+}
+public void setFirstName(String firstName) {
+	this.firstName = firstName;
+}
+public String getLastName() {
+	return lastName;
+}
+public void setLastName(String lastName) {
+	this.lastName = lastName;
+}
   
 }
