@@ -17,9 +17,10 @@ public class SelfEmployee {
 	private String nameofBusiness;
 	private String natureOfBusiness;
 	private Double latestTurnover;
-	@OneToOne(cascade={CascadeType.ALL})
-	 @JoinColumn(name="customerId") 
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "customerId",referencedColumnName = "customerId")
 	private Customer customer;
+	
 	public Long getSelfEmployeeId() {
 		return selfEmployeeId;
 	}
