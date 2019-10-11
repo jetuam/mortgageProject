@@ -6,7 +6,7 @@ public class EmiDto {
 
 	private Double loanAmount;
 	private Double tenure;
-	private Double interestRate;
+	private Double rateOfInterest;
 	public Double getLoanAmount() {
 		return loanAmount;
 	}
@@ -19,15 +19,12 @@ public class EmiDto {
 	public void setTenure(Double tenure) {
 		this.tenure = tenure;
 	}
-	public Double getInterestRate() {
-		return interestRate;
+	public Double getRateOfInterest() {
+		return rateOfInterest;
 	}
-	public void setInterestRate(Double interestRate) {
-		this.interestRate = interestRate;
+	public void setRateOfInterest(Double rateOfInterest) {
+		this.rateOfInterest = rateOfInterest;
 	}
 	
-	
-	
-
 	
 }
