@@ -15,7 +15,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 import com.ing.mortgage.dto.CustomerDTO;
 import com.ing.mortgage.dto.CustomerRequestDTO;
 import com.ing.mortgage.dto.LoanDTO;
-import com.ing.mortgage.dto.LoanDetailsResponseDTO;
 import com.ing.mortgage.dto.SalariedEmployeeDTO;
 import com.ing.mortgage.dto.SelfEmployeeDTO;
 import com.ing.mortgage.entity.Customer;
